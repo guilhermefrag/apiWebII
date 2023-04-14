@@ -49,4 +49,11 @@ app.get('/perguntas', (req, res) => {
   res.sendFile(`${__dirname}/html/lista_perguntas.html`);
 });
 
+app.get('/cadastra-teste', (req, res) => {
+  res.sendFile(`${__dirname}/html/cadastra_testes.html`);
+});
+
+app.get('/lista-resultados', (req, res) => {
+  res.sendFile(`${__dirname}/html/lista_resultados.html`);
+});
 

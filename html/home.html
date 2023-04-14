@@ -9,12 +9,24 @@
   </head>
   <body>
     <h1>Bem-vindo!</h1>
+    <div class="btn">
+      <button onclick="redirectToLogin()">Entrar</button>
+    </div>
     <p>Por favor, faça login para acessar o conteúdo.</p>
-    <button onclick="redirectToLogin()">Entrar</button>
-
+    <p>Conteudos que não precisam de Login</p>
+    <div class="btn">
+      <button onclick="redirectToListaDeTestes()">Lista de Testes</button>
+      <button onclick="redirectToListaDeResultados()">Lista de Resultados</button>
+    </div>
     <script>
 		function redirectToLogin() {
 			window.location.href = "http://localhost:3000/login";
+		}
+    function redirectToListaDeTestes() {
+			window.location.href = "http://localhost:3000/lista-teste";
+		}
+    function redirectToListaDeResultados() {
+			window.location.href = "http://localhost:3000/lista-resultados";
 		}
 	</script>
   </body>

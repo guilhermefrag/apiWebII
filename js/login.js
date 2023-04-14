@@ -3,7 +3,7 @@ const submitBtn = document.querySelector('input[type="submit"]');
 			event.preventDefault();
 
 			if (checkLogin()) {
-				window.location.href = '/lista-teste';
+				window.location.href = '/cadastra-teste';
 			}
 		});
 
