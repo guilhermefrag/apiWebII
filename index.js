@@ -73,5 +73,10 @@ app.post('/teste', (req, res) => {
   }
 })
 
-app.get('/testes')
+app.get('/perguntas/:nomeTeste', (req, res) => {
+  const nomeTeste = req.params.nomeTeste;
+  const teste = testes.find(item => item.teste === nomeTeste);
+
+  res.json(teste.perguntas);
+});
 
