@@ -1,12 +1,17 @@
+async function recuperarListaTestes() {
+    const res = await fetch('http://localhost:3000/testes');
+    return await res.json();
+}
+
 async function criarListaDeTestes() {
-    const res = await fetch('http://localhost:3000/testes', { cache: 'no-cache' });
-    const testes = await res.json();
+    const testes = await recuperarListaTestes();
 
     const lista = document.createElement('ul');
+
     testes.map(teste => {
         const link = document.createElement('a');
         link.textContent = teste.teste;
-        link.href = `/perguntas?teste=${teste.teste}`;
+        link.href = `/novasperguntas?teste=${teste.teste}`;
         const item = document.createElement('li');
         item.appendChild(link);
         lista.appendChild(item);
@@ -14,11 +19,12 @@ async function criarListaDeTestes() {
     return lista;
 }
 
-
 async function onClickAdicionarTeste() {
     const valueInput = document.getElementById('input-cadastro-teste').value;
-    const res = await fetch('http://localhost:3000/testes');
-    const testes = await res.json();
+
+    if (!valueInput) return alert('O campo descrição é obrigatório');
+
+    const testes = await recuperarListaTestes();
 
     testes.push({
         teste: valueInput,
@@ -26,19 +32,27 @@ async function onClickAdicionarTeste() {
     });
 
     try {
-        await fetch('http://localhost:3000/teste', {
+        const request = fetch('http://localhost:3000/teste', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
+                'Accept': 'application/json, text/plain, */*'
             },
             body: JSON.stringify(testes),
         });
 
-        location.reload();
+        request.then(res => {
+            if (res.status === 200) {
+                setTimeout(() => {
+                    location.reload()
+                }, 200);
+            };
+        })
     } catch (error) {
-        console.log(error)
+        alert(error)
     }
 }
 
 const container = document.querySelector('.lista-de-testes');
+
 criarListaDeTestes().then(lista => container.appendChild(lista));

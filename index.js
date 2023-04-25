@@ -49,6 +49,11 @@ app.get('/perguntas', (req, res) => {
   res.sendFile(`${__dirname}/html/lista_perguntas.html`);
 });
 
+app.get('/novasperguntas', (req, res) => {
+  const teste = req.query.teste;
+  res.sendFile(`${__dirname}/html/cadastra_perguntas.html`);
+});
+
 app.get('/cadastra-teste', (req, res) => {
   res.sendFile(`${__dirname}/html/cadastra_testes.html`);
 });
@@ -67,4 +72,6 @@ app.post('/teste', (req, res) => {
     res.status(400).send('Algo deu errado');
   }
 })
+
+app.get('/testes')
 
