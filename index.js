@@ -57,3 +57,14 @@ app.get('/lista-resultados', (req, res) => {
   res.sendFile(`${__dirname}/html/lista_resultados.html`);
 });
 
+app.post('/teste', (req, res) => {
+  const listaTestes = JSON.stringify(req.body);
+
+  try {
+    fs.writeFileSync('./dados/testes.json', listaTestes);
+    res.status(200).send('Funcionou');
+  } catch (error) {
+    res.status(400).send('Algo deu errado');
+  }
+})
+
