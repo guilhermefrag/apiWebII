@@ -1,4 +1,4 @@
-async function criarListaDeTestes() {
+async function createListaDeTestes() {
   const res = await fetch('http://localhost:3000/testes');
   const testes = await res.json();
   const urlParams = new URLSearchParams(window.location.search);
@@ -30,30 +30,33 @@ async function criarListaDeTestes() {
     const filter_teste = urlParams.get('teste');
     const perguntasList = document.querySelector('.perguntas');
   
-    // Find the selected test
     const selectedTest = testes.find(teste => teste.teste === filter_teste);
   
-    // Generate a list of questions for the selected test
     const perguntas = selectedTest.perguntas;
     perguntas.forEach(pergunta => {
       const li = document.createElement('li');
-      li.textContent = pergunta.pergunta;
       const ul = document.createElement('ul');
+      li.appendChild(ul);
       for (let i = 'A'.charCodeAt(); i <= 'E'.charCodeAt(); i++) {
         const opcao = `opcao${String.fromCharCode(i)}`;
         const opcaoValue = pergunta[opcao];
-        const resposta = pergunta.resposta === opcao ? ' (Resposta)' : '';
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = pergunta.pergunta;
+        input.value = opcao;
+        const label = document.createElement('label');
+        label.textContent = `${String.fromCharCode(i)}: ${opcaoValue}`;
+        label.insertBefore(input, label.firstChild);
         const liOpcao = document.createElement('li');
-        liOpcao.textContent = `${String.fromCharCode(i)}: ${opcaoValue}${resposta}`;
+        liOpcao.appendChild(label);
         ul.appendChild(liOpcao);
       }
-      li.appendChild(ul);
+      const span = document.createElement('span');
+      span.textContent = pergunta.pergunta;
+      li.insertBefore(span, ul);
       perguntasList.appendChild(li);
     });
   }
-
 }
 
-
-
-criarListaDeTestes();
+createListaDeTestes();
