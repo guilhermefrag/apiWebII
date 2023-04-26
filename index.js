@@ -80,3 +80,14 @@ app.get('/perguntas/:nomeTeste', (req, res) => {
   res.json(teste.perguntas);
 });
 
+app.post('/pergunta/', (req, res) => {
+  const listaTestes = JSON.stringify(req.body);
+
+  try {
+    fs.writeFileSync('./dados/testes.json', listaTestes);
+    res.status(200).send('Funcionou');
+  } catch (error) {
+    res.status(400).send('Algo deu errado');
+  }
+})
+
