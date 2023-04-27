@@ -91,3 +91,13 @@ app.post('/pergunta/', (req, res) => {
   }
 })
 
+app.post('/resultado', (req, res) => {
+  const resultados = JSON.stringify(req.body);
+
+  try {
+    fs.writeFileSync('./dados/resultados.json', resultados);
+    res.status(200).send('Funcionou');
+  } catch (error) {
+    res.status(400).send('Algo deu errado');
+  }
+});
