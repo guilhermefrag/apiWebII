@@ -2,8 +2,6 @@ async function criarListaDeTestes() {
   const res = await fetch('http://localhost:3000/testes');
   const testes = await res.json();
 
-  debugger
-
   const lista = document.createElement('ul');
   testes.map(teste => {
     const link = document.createElement('a');

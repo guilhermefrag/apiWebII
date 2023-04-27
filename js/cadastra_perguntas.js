@@ -19,15 +19,19 @@ async function criarListaDePerguntas() {
         const tituloPergunta = pergunta.pergunta;
         const opcoes = Object.keys(pergunta).filter(p => p.includes('opcao')).map(p => pergunta[p]);
         const resposta = pergunta[Object.keys(pergunta).find(p => p === 'resposta')];
-
         const item = document.createElement('li');
         item.textContent = tituloPergunta;
+        item.classList.add('pergunta')
         lista.appendChild(item);
 
         opcoes.map(opcao => {
-            const item = document.createElement('li');
-            item.textContent = opcao;
-            lista.appendChild(item);
+            const respostas = document.createElement('li');
+
+            if (pergunta[resposta] === opcao) respostas.classList.add('opcao-correta')
+
+            respostas.textContent = opcao
+            respostas.classList.add('respostas');
+            item.appendChild(respostas);
         })
     });
 
@@ -41,12 +45,16 @@ async function onClickAdicionarPergunta() {
     if (!pergunta) return alert('O campo descrição é obrigatório');
 
     const nomeTeste = urlParams.get('teste');
-    const opcaoA = document.getElementById('input-opcao-a').value
-    const opcaoB = document.getElementById('input-opcao-b').value
-    const opcaoC = document.getElementById('input-opcao-c').value
-    const opcaoD = document.getElementById('input-opcao-d').value
-    const opcaoE = document.getElementById('input-opcao-e').value
-    const resposta = document.getElementById('input-resposta-correta').value
+    const opcaoA = document.getElementById('input-opcao-a').value;
+    const opcaoB = document.getElementById('input-opcao-b').value;
+    const opcaoC = document.getElementById('input-opcao-c').value;
+    const opcaoD = document.getElementById('input-opcao-d').value;
+    const opcaoE = document.getElementById('input-opcao-e').value;
+    const resposta = document.getElementById('input-resposta-correta').value;
+
+    if (!opcaoA || !opcaoB || !opcaoC || !opcaoD || !opcaoE) return alert('Preencha todas as opções!')
+
+
     const testes = await recuperarListaTestes();
 
     testes.forEach(item => {

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+* {
+    font-family: poppins;
+}
+
+.lista-de-testes {
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.lista-de-testes h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 32px;
+}
+.lista-de-testes section {
+    min-width: 900px;
+}
+.lista-de-testes article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+}
+
+.lista-de-testes article input{
+    width: 50%;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 0px 4px #00000020;
+    outline: none;
+}
+.lista-de-testes article label{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    display: inline;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 12px;
+    width: 150px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lista-de-testes h2{
+    margin-top: 80px;
+    text-align: center;
+}
+
+.lista-de-testes ul{
+    min-width: 600px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    row-gap: 20px;
+}
+
+.lista-de-testes li a{
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid #333;
+    font-weight: 500;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.lista-de-testes li:hover a{
+    color: #46da4b;
+    border-bottom: 2px solid #46da4b;
+}

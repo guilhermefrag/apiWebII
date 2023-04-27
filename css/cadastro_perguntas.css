@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+* {
+    font-family: poppins;
+}
+
+.lista-pergunta {
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.lista-pergunta h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 32px;
+}
+
+.lista-pergunta section {
+    min-width: 900px;
+}
+
+.lista-pergunta section .cad-pergunta {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lista-pergunta div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.lista-pergunta .cad-enviar div {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.lista-pergunta .cad-enviar div label {
+    margin-right: 10px;
+}
+
+.lista-pergunta .cad-enviar div select {
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.lista-pergunta .cad-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lista-pergunta .pergunta {
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+.lista-pergunta .pergunta input {
+    max-width: 460px;
+}
+
+.lista-pergunta article input {
+    width: 100%;
+    max-width: 760px;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 0px 4px #00000020;
+    outline: none;
+}
+
+.lista-pergunta .cad-pergunta label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #3E8E41;
+}
+
+button {
+    padding: 12px 11px;
+    font-size: 18px;
+    border-radius: 12px;
+    width: 255px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s
+}
+
+.lista-pergunta h2 {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.lista-pergunta ul {
+    min-width: 1200px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    text-align: center;
+    row-gap: 20px;
+    column-gap: 12px;
+}
+
+.lista-pergunta ul li {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.lista-pergunta ul li.opcao-correta {
+    background-color: green;
+    color: #fff;
+}
