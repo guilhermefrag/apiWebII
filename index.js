@@ -101,3 +101,4 @@ app.post('/resultado', (req, res) => {
     res.status(400).send('Algo deu errado');
   }
 });
+

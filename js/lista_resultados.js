@@ -41,7 +41,7 @@ async function criarListaDeResultados() {
         qtdAcertos.textContent = 'Nº Acertos: ' + teste.qtd_acertos;
         qtdPergnutas.textContent = 'Nº Perguntas: ' + teste.qtd_perguntas;
         calculo = (teste.qtd_acertos * 100) / teste.qtd_perguntas;
-        media.textContent = 'Media: ' + parseFloat(calculo.toFixed(2)) + '% de acertos';
+        media.textContent = parseFloat(calculo.toFixed(2)) + '% de acertos';
         media.classList.add('media');
         div.appendChild(nomeTeste);
         div.appendChild(qtdPergnutas);
