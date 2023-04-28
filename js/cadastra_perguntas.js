@@ -14,7 +14,12 @@ async function recuperarPerguntasPeloTeste() {
 async function criarListaDePerguntas() {
     const perguntas = await recuperarPerguntasPeloTeste();
     const lista = document.createElement('ul');
+    const urlParams = new URLSearchParams(window.location.search);
+    const nomeTeste = urlParams.get('teste');
+    const titulo = document.getElementById('titulo-cadastro-perguntas');
 
+    titulo.textContent += ` - ${nomeTeste}`
+    
     perguntas.map(pergunta => {
         const tituloPergunta = pergunta.pergunta;
         const opcoes = Object.keys(pergunta).filter(p => p.includes('opcao')).map(p => pergunta[p]);
